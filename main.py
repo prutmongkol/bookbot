@@ -16,6 +16,8 @@ def get_num_words(text):
 def get_char_list(text):
     char_dict = {}
     for char in text:
+        if not char.isalpha():
+            continue
         lowered = char.lower()
         if lowered in char_dict:
             char_dict[lowered] += 1
