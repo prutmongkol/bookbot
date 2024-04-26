@@ -1,9 +1,7 @@
 def main():
     file_path = "books/frankenstein.txt"
-    file_contents = get_book_text(file_path)
 
-    print(get_num_words(file_contents))
-    print(get_char_list(file_contents))
+    print_report(file_path)
 
 def get_book_text(file_path):
     with open(file_path) as f:
@@ -36,11 +34,17 @@ def get_char_list(text):
 def sort_on(dict):
     return dict["num"]
 
-def print_report(text, path):
+def print_report(path):
+    text = get_book_text(path)
+    
     print(f"--- Report of {path} ---")
     print(f"{get_num_words(text)} words found in the document")
     print()
 
+    for char in get_char_list(text):
+        print(f"Character '{char["char"]}' was found {char["num"]} times")
+
+    print("--- End of report ---")
     
 
 main()
