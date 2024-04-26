@@ -28,13 +28,17 @@ def get_char_list(text):
             "char": char,
             "num": char_dict[char]
         })
+    character_list.sort(reverse=True, key=sort_on)
     return character_list
+
+def sort_on(dict):
+    return dict["num"]
 
 def print_report(text, path):
     print(f"--- Report of {path} ---")
     print(f"{get_num_words(text)} words found in the document")
     print()
 
-
+    
 
 main()
